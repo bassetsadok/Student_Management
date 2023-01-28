@@ -24,7 +24,7 @@ def create_admin(db: Session = Depends(get_db)):
 
     admin_existed=select(Admin).where(Admin.email == email)
     with engine.connect() as conn:
-        for row in conn.execute(stmt):
+        for row in conn.execute(admin_existed):
             if row:
                 return
 
