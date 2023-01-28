@@ -18,7 +18,7 @@ def hash(password:str):
 def verify(plain_password, hashed_password):
     return pwd_context.verify(plain_password,hashed_password)
 
-def create_admin(db: Session = Depends(get_db)):
+def create_admin():
     email=os.getenv("ADMIN_EMAIL")
     password=os.getenv("ADMIN_PASSWORD")
 
