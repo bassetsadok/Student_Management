@@ -3,7 +3,7 @@ from fastapi.security.oauth2 import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from src.modules.modulus.schemas.modulus_schemas import modulus_create, modulus_dto
 from typing import List
-from src.modules.teacher.schemas.teacher_schemas import teacher_create
+from src.modules.teacher.schemas.teacher_schemas import Teacher_create
 from ....db.database import get_db
 from ....auth.token_schemas import Token
 from ....auth.oauth2 import get_current_user
