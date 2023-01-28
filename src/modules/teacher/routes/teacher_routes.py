@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends,status,HTTPException,Response
 from fastapi.security.oauth2 import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
-from src.modules.teacher.schemas.teacher_schemas import Teacher_create,teacher_dto
+from src.modules.teacher.schemas.teacher_schemas import Teacher_create,Teacher_dto
 from ....db.database import get_db
 from ....auth.token_schemas import Token
 from ....auth.oauth2 import create_access_token
@@ -39,13 +39,13 @@ def create_teacher(teacher:Teacher_create,db: Session = Depends(get_db)):
 
     return new_teacher
 
-@router.get("/",response_model=List[teacher_dto])
+@router.get("/",response_model=List[Teacher_dto])
 async def get_teachers(db: Session = Depends(get_db)):
 
     teachers=db.query(Teacher).all()
     return teachers
 
-@router.get('/{id}',response_model=teacher_dto)
+@router.get('/{id}',response_model=Teacher_dto)
 def get_teacher(id:int,db: Session = Depends(get_db)):
     teacher = db.query(Teacher).filter(Teacher.id == id ).first()
     if not teacher:
