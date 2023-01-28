@@ -6,8 +6,8 @@ from ....db.database import Base
 teacher_modulus = Table(
     "teacher_modulus",
     Base.metadata,
-    Column("teacher_id", ForeignKey("teachers.id")),
-    Column("modulus_id", ForeignKey("modulus.id")),
+    Column("teacher_id", ForeignKey("teachers.id"),primary_key=True),
+    Column("modulus_id", ForeignKey("modulus.id"),primary_key=True),
 )
 
 
